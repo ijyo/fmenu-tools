@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+URL="https://www.duckduckgo.com/?q="
+BANGS=$(cat <<EOS
+!archwiki
+!archpkg
+!aurp
+!bang
+!github
+!slant
+!translate
+EOS
+)
+
+bang=$( (echo "$BANGS") | fmenu )
+
+if [[ -n "$bang" ]]; then
+  query=$(fmenu-read -p "$bang:")
+  if [[ -v BROWSER ]]; then
+    $BROWSER "$URL $bang $query"
+  else
+    xdg-open "$URL $bang $query"
+  fi
+fi

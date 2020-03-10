@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+URL="https://ejje.weblio.jp/content/"
+
+query=$(fmenu-read -p weblio:)
+
+if [[ -n "$query" ]]; then
+  if [[ -x $(which surf) ]]; then
+    surf "$URL$query"
+  elif [[ -v BROWSER ]]; then
+    $BROWSER "$URL$query"
+  else
+    xdg-open "$URL$query"
+  fi
+fi

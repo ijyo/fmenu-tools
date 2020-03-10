@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+URL="https://www.duckduckgo.com/?q="
+
+query=$(fmenu-read -p DuckDuckGo:)
+
+if [[ -n "$query" ]]; then
+  if [[ -v BROWSER ]]; then
+    $BROWSER "$URL$query"
+  else
+    xdg-open "$URL$query"
+  fi
+fi

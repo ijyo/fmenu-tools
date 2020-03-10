@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+URL="https://www.oxfordlearnersdictionaries.com/definition/american_english/"
+
+query=$(fmenu-read -p oxford:)
+
+if [[ -n "$query" ]]; then
+  if [[ -x $(which surf) && false ]]; then
+    surf "$URL$query"
+  elif [[ -v BROWSER ]]; then
+    $BROWSER "$URL$query"
+  else
+    xdg-open "$URL$query"
+  fi
+fi

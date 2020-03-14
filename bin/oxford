@@ -2,7 +2,7 @@
 
 URL="https://www.oxfordlearnersdictionaries.com/definition/american_english/"
 
-query=$(fmenu-read -p oxford:)
+query=$(readp -p oxford:)
 
 if [[ -n "$query" ]]; then
   if [[ -x $(which surf) && false ]]; then

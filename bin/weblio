@@ -2,7 +2,7 @@
 
 URL="https://ejje.weblio.jp/content/"
 
-query=$(fmenu-read -p weblio:)
+query=$(readp -p weblio:)
 
 if [[ -n "$query" ]]; then
   if [[ -x $(which surf) ]]; then

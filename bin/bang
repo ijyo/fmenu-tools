@@ -15,7 +15,7 @@ EOS
 bang=$( (echo "$BANGS") | fmenu )
 
 if [[ -n "$bang" ]]; then
-  query=$(fmenu-read -p "$bang:")
+  query=$(readp -p "$bang:")
   if [[ -v BROWSER ]]; then
     $BROWSER "$URL $bang $query"
   else

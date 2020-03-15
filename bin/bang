@@ -4,7 +4,7 @@ URL="https://www.duckduckgo.com/?q="
 BANGS=$(cat <<EOS
 !archwiki
 !archpkg
-!aurp
+!aur
 !bang
 !github
 !slant

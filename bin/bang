@@ -9,6 +9,7 @@ BANGS=$(cat <<EOS
 !github
 !slant
 !translate
+!vimawesome
 EOS
 )
 

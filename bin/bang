@@ -6,6 +6,7 @@ BANGS=$(cat <<EOS
 !archpkg
 !aur
 !bang
+!deepl
 !github
 !slant
 !translate

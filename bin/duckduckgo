@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-URL="https://www.startpage.com/do/dsearch?query="
+URL="https://www.duckduckgo.com/?q="
 
-query=$(readp -p Startpage:)
+query=$(readp -p DuckDuckGo:)
 
 if [[ -n "$query" ]]; then
   if [[ -v BROWSER ]]; then

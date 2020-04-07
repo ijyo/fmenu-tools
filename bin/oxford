@@ -5,8 +5,8 @@ URL="https://www.oxfordlearnersdictionaries.com/definition/american_english/"
 query=$(readp -p oxford:)
 
 if [[ -n "$query" ]]; then
-  if [[ -x $(which surf) && false ]]; then
-    surf "$URL$query"
+  if [[ -x $(which vimb) && false ]]; then
+    vimb "$URL$query"
   elif [[ -v BROWSER ]]; then
     $BROWSER "$URL$query"
   else

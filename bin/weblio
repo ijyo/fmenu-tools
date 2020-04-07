@@ -5,8 +5,8 @@ URL="https://ejje.weblio.jp/content/"
 query=$(readp -p weblio:)
 
 if [[ -n "$query" ]]; then
-  if [[ -x $(which surf) ]]; then
-    surf "$URL$query"
+  if [[ -x $(which vimb) ]]; then
+    vimb "$URL$query"
   elif [[ -v BROWSER ]]; then
     $BROWSER "$URL$query"
   else

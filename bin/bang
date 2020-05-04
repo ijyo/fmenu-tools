@@ -12,6 +12,7 @@ BANGS=$(cat <<EOS
 !rust
 !slant
 !translate
+!urban
 !youtube
 !vimawesome
 EOS

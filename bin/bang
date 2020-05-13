@@ -9,9 +9,7 @@ BANGS=$(cat <<EOS
 !bang
 !deepl
 !github
-!rust
 !slant
-!translate
 !urban
 !youtube
 !vimawesome

@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 
-URL="https://ejje.weblio.jp/content/"
+[[ -x $(which vimb) ]] && opener="-o vimb"
 
-query=$(readp -p weblio:)
-
-if [[ -n "$query" ]]; then
-  if [[ -x $(which vimb) ]]; then
-    vimb "$URL$query"
-  elif [[ -v BROWSER ]]; then
-    $BROWSER "$URL$query"
-  else
-    xdg-open "$URL$query"
-  fi
-fi
+bang $opener -p weblio: "!weblioe"

@@ -18,13 +18,36 @@ BANGS=$(cat <<EOS
 EOS
 )
 
-bang=$( (echo "$BANGS") | fmenu )
+while getopts o:p: OPT
+do
+  case $OPT in
+    o) opener=$OPTARG
+      ;;
+    p) prompt=$OPTARG
+      ;;
+  esac
+done
+shift $((OPTIND - 1))
 
-if [[ -n "$bang" ]]; then
-  query=$(readp -p "$bang:")
-  if [[ -v BROWSER ]]; then
-    $BROWSER "$URL $bang $query"
-  else
-    xdg-open "$URL $bang $query"
-  fi
+if [[ -n "$1" ]]; then
+  bang=$1
+else
+  bang=$( (echo "$BANGS") | fmenu )
+fi
+[[ -z "$bang" ]] && exit 1
+
+[[ -z "$prompt" ]] && prompt="$bang":
+
+if [[ -n "$2" ]]; then
+  query=$2
+else
+  query=$(readp -p $prompt)
+fi
+
+if [[ -n "$opener" ]]; then
+  $opener "$URL$bang%20$query"
+elif [[ -v BROWSER ]]; then
+  $BROWSER "$URL$bang%20$query"
+else
+  xdg-open "$URL$bang%20$query"
 fi

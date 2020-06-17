@@ -2,17 +2,14 @@
 
 URL="https://www.duckduckgo.com/?q="
 BANGS=$(cat <<EOS
-!amjp
 !archwiki
 !archpkg
 !aur
 !bang
 !deepl
 !github
-!olad
 !slant
 !urban
-!weblioe
 !youtube
 !vimawesome
 EOS

@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-[[ -x $(which vimb) ]] && opener="-o vimb"
-
-bang $opener -p deepl: "!deepl"

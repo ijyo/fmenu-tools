@@ -1,4 +1,6 @@
-# bin-fmenu
+# fmenu-tools
+
+Tools with [fmenu](https://github.com/ijyo/fmenu).
 
 ## Installation
 

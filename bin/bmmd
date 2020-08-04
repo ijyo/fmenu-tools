@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+usage() {
+  echo "Usage: $0 [-f markdown]" 1>&2
+  exit 1
+}
+
+markdown=${XDG_DATA_HOME}/bmmd/bookmarks.md
+
+while getopts 'f:h?' OPT
+do
+  case $OPT in
+    f) markdown=$OPTARG
+      ;;
+    h|?) usage
+      ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+if [[ ! -f $markdown ]]; then
+  echo "$markdown does not exist." 1>&2
+  echo
+  usage
+fi
+
+bookmarks=$(grep -oP '\[.*?\]\(.+?\)' $markdown | sed -E 's/\[(.*)\]\((.+)\)/\1\t\2/' | column -t -s $'\t' --output-separator $'\t')
+url=$( (echo "$bookmarks") | fmenu | cut -f 2)
+
+if [[ -n "$url" ]]; then
+  if [[ -v BROWSER ]]; then
+    $BROWSER "$url"
+  else
+    xdg-open "$url"
+  fi
+fi

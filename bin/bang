@@ -16,12 +16,10 @@ EOS
 )
 
 options=()
-while getopts no:p: OPT
+while getopts np: OPT
 do
   case $OPT in
     n) options+='--new-window'
-      ;;
-    o) opener=$OPTARG
       ;;
     p) prompt=$OPTARG
       ;;
@@ -44,9 +42,7 @@ else
   query=$(readp -p $prompt)
 fi
 
-if [[ -n "$opener" ]]; then
-  $opener "$URL$bang%20$query"
-elif [[ -v BROWSER ]]; then
+if [[ -v BROWSER ]]; then
   $BROWSER "${options[@]}" "$URL$bang%20$query"
 else
   xdg-open "$URL$bang%20$query"

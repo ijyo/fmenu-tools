@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-[[ -x $(which vimb) ]] && opener="-o vimb"
-
-bang $opener -p oxford: "!olad"
+bang -n -p oxford: "!olad"

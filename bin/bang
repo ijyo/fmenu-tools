@@ -15,9 +15,12 @@ BANGS=$(cat <<EOS
 EOS
 )
 
-while getopts o:p: OPT
+options=()
+while getopts no:p: OPT
 do
   case $OPT in
+    n) options+='--new-window'
+      ;;
     o) opener=$OPTARG
       ;;
     p) prompt=$OPTARG
@@ -44,7 +47,7 @@ fi
 if [[ -n "$opener" ]]; then
   $opener "$URL$bang%20$query"
 elif [[ -v BROWSER ]]; then
-  $BROWSER "$URL$bang%20$query"
+  $BROWSER "${options[@]}" "$URL$bang%20$query"
 else
   xdg-open "$URL$bang%20$query"
 fi

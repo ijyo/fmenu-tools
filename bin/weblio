@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-[[ -x $(which vimb) ]] && opener="-o vimb"
-
-bang $opener -p weblio: "!weblioe"
+bang -n -p weblio: "!weblioe"
